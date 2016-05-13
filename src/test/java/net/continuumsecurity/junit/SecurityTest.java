@@ -2,8 +2,11 @@ package net.continuumsecurity.junit;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
+import net.continuumsecurity.Hooks;
 import net.continuumsecurity.scanner.ZapManager;
 import net.continuumsecurity.web.drivers.DriverFactory;
+
+import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.runner.RunWith;
 
@@ -18,6 +21,8 @@ import org.junit.runner.RunWith;
 )
 public class SecurityTest {
 
+	
+	
     @AfterClass
     public static void tearDown() {
         DriverFactory.quitAll();

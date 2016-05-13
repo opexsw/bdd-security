@@ -1,9 +1,13 @@
 package net.continuumsecurity.clients;
 
 import net.continuumsecurity.Config;
+import net.continuumsecurity.Hooks;
+
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.WebDriver;
 
+import java.io.IOException;
+import java.net.URISyntaxException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,6 +18,16 @@ public class Browser implements AuthTokenManager {
     WebDriver driver;
 
     public Browser(WebDriver driver) {
+//    	Hooks hooks = new Hooks();
+//    	try {
+//			driver = hooks.getDriver();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (URISyntaxException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
         this.driver = driver;
     }
 

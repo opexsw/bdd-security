@@ -96,7 +96,11 @@ public class Config {
     }
 
     public String getBaseUrl() {
-        return validateAndGetString("baseUrl");
+    	String url = System.getenv("TEST_URL");
+    	if(url.isEmpty()) 
+    		return validateAndGetString("baseUrl");
+    	else 
+    		return url;
     }
 
     public String getDefaultDriver() {
