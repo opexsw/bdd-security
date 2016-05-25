@@ -84,7 +84,7 @@ def generateReport() {
         jsonReportFiles.add("${reporting.baseDir}/cucumber/${file.name}".toString());
     }
 
-    String projectName = "BDD-Security";
+    String projectName = "Security-Test";
     boolean skippedFails = false;
     boolean pendingFails = false;
     boolean undefinedFails = true;
@@ -101,6 +101,29 @@ def generateReport() {
     ReportBuilder reportBuilder = new ReportBuilder(jsonReportFiles, configuration);
     reportBuilder.generateReports();
     println("\nReport available on: "+reportOutputDirectory.getCanonicalPath()+"/feature-overview.html")
+    
+    
+
+    def htmlReports = fileTree(dir: "${reporting.baseDir}/cucumber/pretty").include '**/*.html'.toString()
+    htmlReports.each { File file ->
+        String contents = new File( "${reporting.baseDir}/cucumber/pretty/${file.name}".toString() ).getText( 'UTF-8' ) 
+		contents = contents.replaceAll( '<title>Cucumber-JVM Html', '<title>Security Test' )
+		new File( "${reporting.baseDir}/cucumber/pretty/${file.name}".toString() ).write( contents, 'UTF-8' )
+    }
+    
+    htmlReports.each { File file ->
+        String contents = new File( "${reporting.baseDir}/cucumber/pretty/${file.name}".toString() ).getText( 'UTF-8' ) 
+		contents = contents.replaceAll( " logo"," logo123")
+		new File( "${reporting.baseDir}/cucumber/pretty/${file.name}".toString() ).write( contents, 'UTF-8' )
+    }
+    
+    htmlReports.each { File file ->
+        String contents = new File( "${reporting.baseDir}/cucumber/pretty/${file.name}".toString() ).getText( 'UTF-8' ) 
+		contents = contents.replaceAll(">Cucumber</a>",">Security</a>") 
+		new File( "${reporting.baseDir}/cucumber/pretty/${file.name}".toString() ).write( contents, 'UTF-8' )
+    }
+    
+    
 }
 
 dependencies {
