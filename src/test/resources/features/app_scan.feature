@@ -130,16 +130,7 @@ Feature: Automated Application Security Scanning
     And the XML report is written to the file build/zap/shell_shock.xml
     Then no Medium or higher risk vulnerabilities should be present
 
-  @cwe-90
-  Scenario: The application should not be vulnerable to LDAP injection
-    And the ldap-injection policy is enabled
-    And the attack strength is set to High
-    And the alert threshold is set to Low
-    When the scanner is run
-    And the following false positives are removed
-      |url                    |parameter          |cweId      |wascId   |
-    And the XML report is written to the file build/zap/ldap_injection.xml
-    Then no Medium or higher risk vulnerabilities should be present
+  
 
   @cwe-91
   Scenario: The application should not be vulnerable to XPATH injection
