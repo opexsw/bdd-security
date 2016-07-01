@@ -46,20 +46,20 @@ public class MyComplexApp extends WebApplication implements INavigable {
 	
     public void navigate() {
         driver.get(Config.getInstance().getBaseUrl());
-        driver.findElement(By.id("username")).clear();
-        sleep(1000);
-        driver.findElement(By.id("username")).sendKeys("user");
-        driver.findElement(By.id("password")).clear();
+        // driver.findElement(By.id("username")).clear();
+        // sleep(1000);
+        // driver.findElement(By.id("username")).sendKeys("user");
+        // driver.findElement(By.id("password")).clear();
         
-        sleep(1000);
-        driver.findElement(By.id("password")).sendKeys("password");
+        // sleep(1000);
+        // driver.findElement(By.id("password")).sendKeys("password");
         
-        sleep(1000);
+        // sleep(1000);
         
-        driver.findElement(By.xpath("//button[contains(text(),'Sign In')]")).click();
+        // driver.findElement(By.xpath("//button[contains(text(),'Sign In')]")).click();
         
         
-        sleep(3000);
+        // sleep(3000);
         
         /*UserPassCredentials creds = new UserPassCredentials(Config.getInstance().getDefaultCredentials());
         driver.findElement(By.id("username")).clear();
