@@ -81,7 +81,7 @@ else
   echo "Available memory: $MEM MB"
   if [ "$MEM" -gt 1500 ]
   then
-    JMEM="-Xmx512m"
+    JMEM="-Xmx1024m"
   else
     if [ "$MEM" -gt 900 ]
     then
